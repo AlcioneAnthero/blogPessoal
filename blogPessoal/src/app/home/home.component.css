@@ -1,3 +1,14 @@
 p {
     font-size: large;
 }
+
+.parallax {
+    background-image: url('https://static.whow.com.br/wp-content/uploads/2020/02/Foto-ilustrativa-Shutterstock_UX-capa.jpg');
+   
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
