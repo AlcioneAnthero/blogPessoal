@@ -3,7 +3,7 @@ p {
 }
 
 .parallax {
-    background-image: url('https://static.whow.com.br/wp-content/uploads/2020/02/Foto-ilustrativa-Shutterstock_UX-capa.jpg');
+    background-image: url('https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
    
     min-height: 500px;
     background-attachment: fixed;
@@ -11,4 +11,19 @@ p {
     background-repeat: no-repeat;
     background-size: cover;
 
+
+}
+
+.parallax2 {
+    background-image: url('https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+   
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.jum-color {
+    background-color: #E9ECEF;
 }
