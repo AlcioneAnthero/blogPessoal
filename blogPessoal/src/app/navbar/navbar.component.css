@@ -6,3 +6,7 @@
 .color-nav {
     background-color: #D793C5;
 }
+
+a {
+    cursor: pointer;
+}
