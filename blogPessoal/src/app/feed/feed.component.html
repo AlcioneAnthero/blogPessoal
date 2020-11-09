@@ -10,33 +10,35 @@
 
       <hr class="mt-5 mb-5">
 
-      <h3 class="text-center mb-4 text-monospace">Como tem sido a sua experiência com o seu futuro?</h3>
+      <h3 class="text-center mb-4  display-7 font3">Conte-me um pouco sobre a sua experiência com o futuro..</h3>
+    
 
       <div class="form-group">
-        <label class="text-monospace" for="titulo">Título:</label>
-        <input type="text" class="form-control" id="titulo" placeholder="Digite aqui o seu titulo">
+        <label class="" for="titulo">Título:</label>
+        <input type="text" class="form-control" id="titulo" placeholder="Digite aqui o seu titulo" [(ngModel)]='postagem.titulo'>
       </div>
 
       <div class="form-group">
-          <label class="text-monospace" for="texto">Texto:</label>
-          <textarea class="form-control" id="texto" rows="3" placeholder="Digite aqui o seu texto"></textarea>
+          <label class="" for="texto">Texto:</label>
+          <textarea class="form-control" id="texto" rows="3" placeholder="Digite aqui o seu texto" [(ngModel)]='postagem.texto'></textarea>
       </div>
 
       <div class="row d-flex align-items-end">
 
         <div class="col-md-6">
           <div class="form-group m-0">
-            <label class="text-monospace" for="tema">Escolha um assunto ou <a href="">Cadastre um novo</a></label>
-            <select name="tema" id='tema' class="form-control">
-              <option>
-               Exemplo: Feedback
+            <label class="" for="tema">Escolha um assunto ou <a routerLink='/cadastro-tema'>Cadastre um novo</a></label>
+            <select name="tema" id='tema' class="form-control" 
+            [(ngModel)]='idTema' (change)='findByIdTema()'>
+              <option *ngFor='let item of listaTemas' value={{item.id}}>
+              {{item.descricao}}
               </option>
             </select>
           </div>
         </div>
 
         <div class="col-md-6 d-flex justify-content-end">
-            <button type="button" class="btn btn-warning w-25">Publicar</button>
+            <button type="button" class="btn btn-warning w-25" (click)='publicar()'>Publicar</button>
         </div>
 
       </div>
@@ -53,9 +55,13 @@
         </div>
       </nav>
 
+
+
+
+
       <div class="tab-content" id="nav-tabContent"> <!--- Começo da Div-->
-        <div class="tab-pane fade show active" id="minhas-postagens" role="tabpanel" aria-labelledby="nav-postagens-tab">
-          
+
+        <div class="tab-pane fade show active" id="minhas-postagens" role="tabpanel" aria-labelledby="nav-postagens-tab"> 
           <div class="row mt-4 mb-4"> <!-- Começo da Row-->
 
             <div class="col-md-10 pr-0"> <!-- Começo da Col-->
@@ -63,16 +69,61 @@
             </div> <!-- Fim da Col-->
 
             <div class="col-md-2 pl-0"> <!-- começo da segunda ROw-->
-              <button class="btn btn-outline-warning w-100" type="button">Pesquisar</button>
+              <button class="btn btn-warning w-100 " type="button">Pesquisar</button>
             </div> <!-- Fim da segunda ROW-->
 
           </div> <!-- Fim da Row-->
+       
+          
+
+
+          <div class="row">
+            <div class="col-md-12">
+
+              <div class="card mt-5 mb-5" *ngFor='let item of listaPostagens
+               | orderBy : key : reverse ' >
+                <div class="card-header" >
+                    <div class="row d-flex align-items-center">
+                        <div class="col-md-8">
+                            <h5 class="card-title"> {{item.titulo}} </h5>
+                            <small>Tema: {{item.tema.descricao}} </small>
+                        </div>
+                        <div class="col-md-4 d-flex justify-content-end">
+
+                            <button class="mr-3 btn btn-outline-info" >
+                                Editar
+                            </button>
+
+                            <button class="btn btn-outline-danger ml-3" >
+                                Apagar
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body" >
+                  <p class="card-text" aria-describedby="texto"> {{item.texto}} </p>
+                  <small id="texto" class="form-text m-0 text-muted mb-3 text-monospace">
+                    Postado em {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date:'HH:mm'}}</small>
+                </div>
+
+
+            </div>
+            </div>
+          </div>
         </div>
+
+
+
+
+
+
 
         <div class="tab-pane fade" id="postagens-assunto" role="tabpanel" aria-labelledby="nav-presenca-tab">
           <div class="row mt-4 mb-4">
             <div class="col-md-10 pr-0">
-              <input class="form-control w-100" type="search" placeholder="Pesquisar postagem" aria-label="Pesquisar">
+              <input class="form-control w-100" type="search" placeholder="Pesquisar assunto" aria-label="Pesquisar">
             </div>
             <div class="col-md-2 pl-0">
               <button class="btn btn-warning w-100" type="button">Pesquisar</button>
@@ -80,13 +131,87 @@
           </div>
         </div>
     
-
         </div> <!-- Fim da DIV content-->
        
+    </div>
+  </div>
+</div> <!--- Fim da container-->
+
+<hr>
+
+<h2 class=" d-flex justify-content-center font3"> Comece aplicando um tempeiro em seu futuro </h2>
+
+<!-- Inicio do Card-->
+<div class="container mb-5 mt-5">
 
 
-
-
+<div class="card-deck">
+  <div class="card">
+    <iframe width="" height="315" src="https://www.youtube.com/embed/vutmmLEaUHo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="card-body">
+      <h5 class="card-title">A importância do inglês</h5>
+      <p class="card-text">Você sabia que o inglês é essencial para um bom desenvolvimento profissional? Que tal se aperfeiçoar?!</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Atualizado 2020</small>
+    </div>
+  </div>
+  <div class="card">
+    <iframe width="" height="315" src="https://www.youtube.com/embed/tW3I0XYJyE0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="card-body">
+      <h5 class="card-title">Um currículo de sucesso</h5>
+      <p class="card-text">Uma boa apresentação te impulsiona a ter grandes oportunidades. Conhecer, aprender, ter uma boa posição e confiaça sobre o seu futuro profisional já é um caminho já andado! Recomendo essa Playlist! </p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Atualizado 2020</small>
+    </div>
+  </div>
+  <div class="card">
+    <iframe width="" height="315" src="https://www.youtube.com/embed/4abKDAVR06I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="card-body">
+      <h5 class="card-title">Enem</h5>
+      <p class="card-text">Através do Enem é possível enxergar uma linda luz no fim do túnel. Lutar por uma oportunidade em uma grande faculdade é um desafio grande, porém não impossível. Separei essa Playlist que vai te ajudar no seu desenvolvimento!</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Atualizado 2020</small>
     </div>
   </div>
 </div>
+<!--- Fim do Card-->
+
+<!-- Começo do segundo Card-->
+<div class="card-deck mb-5 mt-5">
+  <div class="card">
+    <iframe width="" height="315" src="https://www.youtube.com/embed/2V6ijJqR608" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="card-body">
+      <h5 class="card-title">Entrevista de emprego</h5>
+      <p class="card-text">Se apresentar com pontualidade, esperança, sabedoria e certeza que você é capaz de conseguir aquele emprego, é o segredo para conseguir encarar e passar por uma boa entrevista. Separei essa Playlist especialmente para você! </p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Atualizado 2020</small>
+    </div>
+  </div>
+  <div class="card">
+    <iframe width="" height="315" src="https://www.youtube.com/embed/9G5mS_OKT0A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="card-body">
+      <h5 class="card-title">Futuro</h5>
+      <p class="card-text">Conhecer pessoas que já passaram por muitos desafios no futuro é essencial para você assimilar o que está por vim. Separei esse Tedx para você, espero que goste!</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Atualizado 2020</small>
+    </div>
+  </div>
+  <div class="card">
+    <iframe width="" height="315" src="https://www.youtube.com/embed/hL9aUmbPbjQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="card-body">
+      <h5 class="card-title">Quarentena</h5>
+      <p class="card-text">A quarentena nesse momento está sendo essencial para se aperfeiçoar em assuntos técnicos e conhecimento novos. Aprender se tornou a chave de ouro para se deslocar de um local para outro melhor. Que tal adicionar um tempeirinho novo nessa panela?</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Atualizado 2020</small>
+    </div>
+  </div>
+</div>
+<!-- Fim do segundo Card-->
+
+</div> <!-- Fim do segundo container-->

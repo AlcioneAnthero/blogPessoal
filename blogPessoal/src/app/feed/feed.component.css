@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500&display=swap');
+
+
+.font {
+    font-family: 'Playfair Display', serif;
+}
+
+.font2 {
+    font-family: 'Zilla Slab', serif;
+
+}
+
+.font3 {
+    font-family: 'Frank Ruhl Libre', serif;
+}
