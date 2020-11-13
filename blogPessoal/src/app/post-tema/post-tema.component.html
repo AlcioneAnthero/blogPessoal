@@ -5,10 +5,10 @@
           <app-perfil-lateral></app-perfil-lateral>
         </div>
         <div class="col-md-8">
-          <h3 class="text-center mb-4 text-monospace">Cadastro de um novo tema</h3>
+          <h3 class="text-center mb-4 font3">Cadastro de um novo tema</h3>
   
           <div class="form-group">
-            <label class="text-monospace" for="texto">Nome do tema:</label>
+            <label class="" for="texto">Nome do tema:</label>
             <input class="form-control" id="texto" rows="3"
              placeholder="Digite aqui o seu novo tema" [(ngModel)]='tema.descricao' >
         </div>
@@ -22,16 +22,16 @@
 
         <div class="row mt-5">
             <div class="col-md-12">
-              <h4 class="text-center text-monospace">Lista de temas</h4>
+              <h4 class="text-center font3">Lista de temas</h4>
             </div>
           </div>
 
           <table class="table table-hover">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Descrição</th>
-                <th scope="col" class="d-flex justify-content-end">Modificações</th>     
+                <th scope="col" class="font3">#</th>
+                <th scope="col" class="font3">Descrição</th>
+                <th scope="col" class="d-flex justify-content-end font3">Modificações</th>     
               </tr>
             </thead>
             <tbody>
@@ -39,8 +39,8 @@
                 <th scope="row">{{item.id}}</th>
                 <td>{{item.descricao}}</td>
                 <td class="d-flex justify-content-end">
-                    <a class="btn btn-outline-info mr-3"  >Editar</a>
-                    <a class="btn btn-outline-danger"  >Apagar</a>
+                    <a class="btn btn-outline-info mr-3" [routerLink]="['/editar-tema', item.id]" >Editar</a>
+                    <a class="btn btn-outline-danger" [routerLink]="['/deletar-tema', item.id]" >Apagar</a>
                   </td>
               </tr>
               
@@ -48,11 +48,44 @@
           </table>
 
 
-
-
-
-
-
           </div>
           </div>
           </div>
+
+          <!---Inicio do Cards---->
+<div class="container">
+
+
+  <div class="card-deck">
+      <div class="card mt-5 mb-5">
+        <img class="card-img-top" src="/assets/imgblog/Conhecimento.gif" alt="Imagem de capa do card">
+        <div class="card-body">
+          <h5 class="card-title font3">Conhecimento</h5>
+          <p class="card-text font2">Buscar se atualizar virou uma necessidade para enfrentar os caminhos da sociedade cruel. Acompanhar assuntos, aprender e fazer parte da atualidade é a chave para um bom futuro.</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Atualizado 2020</small>
+        </div>
+      </div>
+      <div class="card mt-5 mb-5">
+        <img class="card-img-top" src="/assets/imgblog/Estudo.gif" alt="Imagem de capa do card">
+        <div class="card-body">
+          <h5 class="card-title font3">Estudo e Preparo</h5>
+          <p class="card-text font2">Quando falamos em preparo, imaginamos faculdade, cursos.. Porém você já buscou entender como entrar na faculdade ou fazer um curso de graça? Sim, é possível. Existem milhares de ferramentas que te ajudam nesse caminho.. Vem comigo que eu te mostro! </p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Atualizado 2020 </small>
+        </div>
+      </div>
+      <div class="card mt-5 mb-5">
+        <img class="card-img-top" src="/assets/imgblog/Experiencia.gif"  alt="Imagem de capa do card">
+        <div class="card-body">
+          <h5 class="card-title font3">Formação e Experiência</h5>
+          <p class="card-text font2">Primeiro emprego, estágio, currículos.. Falando assim, até assusta. Mas eu te asseguro que não é nada assustador. Hoje o mercado é amplo e eu te desafio caminhar sobre ele. Só me seguir que você chega lá!</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Atualizado 2020 </small>
+        </div>
+      </div>
+    </div>
+  <!---Final dos Cards--->

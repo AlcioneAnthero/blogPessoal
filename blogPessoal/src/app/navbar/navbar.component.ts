@@ -22,4 +22,7 @@ export class NavbarComponent implements OnInit {
     localStorage.clear()
   }
 
+
 }
+
+
