@@ -1,7 +1,11 @@
+import { environment } from './../../environments/environment.prod';
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { UserLogin } from '../model/UserLogin';
 import { AuthService } from '../service/auth.service';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +31,7 @@ export class LoginComponent implements OnInit {
       this.userLogin = resp
       
     })
-    localStorage.setItem('token', this.userLogin.token)
+    environment.token = this.userLogin.token
       this.router.navigate(['/feed'])
   }
 
